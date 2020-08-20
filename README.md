@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## View
+
+<img src="https://raw.githubusercontent.com/e-maad/circadia_react/master/src/view.png" width="500">
 
 ## Available Scripts
 
