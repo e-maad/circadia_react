@@ -29,10 +29,12 @@ const ScatterGraph = ({ title, axisX, axisY, getData, intervalAfterUpdate = 60 }
     const updateData = () => {
         getData(120).then(res => {
             setOptionsState({ ...optionsState, data: [{ ...optionsState.data[0], dataPoints: res }] });
+        }).catch(err => {
+            console.log(err);
         })
     }
 
-    return <CanvasJSChart options={optionsState} />
+    return <CanvasJSChart id='scatter-graph' options={optionsState} />
 }
 
 export default ScatterGraph;

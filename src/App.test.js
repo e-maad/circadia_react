@@ -1,9 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { mount } from 'enzyme';
+
+jest.mock("./containers/Charts/charts", () => () => { return <div className='charts-container'></div> });
 
 test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const wrapper = mount(<App />);
+  expect(wrapper.find('.charts-container').length).toBe(1);
 });

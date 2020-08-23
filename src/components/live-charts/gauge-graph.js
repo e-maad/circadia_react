@@ -15,11 +15,13 @@ const GaugeGraph = ({ getData, intervalAfterUpdate }) => {
     const updateData = () => {
         getData().then(res => {
             setGuageValue(res);
+        }).catch(err => {
+            console.log(err)
         })
     }
 
     return <>
-        <GaugeChart id="gauge-chart2"
+        <GaugeChart id="gauge-chart"
             nrOfLevels={40}
             arcsLength={[0.5, 0.5, 0.5]}
             colors={['#5BE12C', '#F5CD19', '#EA4228']}

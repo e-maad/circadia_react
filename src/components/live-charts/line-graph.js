@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import CanvasJSReact from '../../canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -29,10 +29,12 @@ const LineGraph = ({ title, axisX, axisY, getData, intervalAfterUpdate = 60 }) =
     const updateData = () => {
         getData().then(res => {
             setOptionsState({ ...optionsState, data: [{ ...optionsState.data[0], dataPoints: res }] });
+        }).catch(err => {
+            console.log(err);
         })
     }
 
-    return <CanvasJSChart options={optionsState} />
+    return <CanvasJSChart id='line-graph' options={optionsState} />
 }
 
 export default LineGraph;
